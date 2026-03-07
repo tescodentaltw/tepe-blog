@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "skills": {
+    "content-gap-analysis": {
+      "source": "aaron-he-zhu/seo-geo-claude-skills",
+      "sourceType": "github",
+      "computedHash": "9f3952aa874d503022b3430ac8abd1aeb5620d129779efe8be560be422ce91e9"
+    },
+    "seo-content-writer": {
+      "source": "aaron-he-zhu/seo-geo-claude-skills",
+      "sourceType": "github",
+      "computedHash": "b078e3ceabb08bc4ee0b67a2949863d0bc6a4b7cdf04cce9c325175ab40c05a0"
+    },
+    "social-media": {
+      "source": "langchain-ai/deepagents",
+      "sourceType": "github",
+      "computedHash": "4f850b3b5501dc922f330f309233b6a17aa0a683e7c3aef2500c8551f94b71c7"
+    },
+    "social-media-content-repurposer": {
+      "source": "onewave-ai/claude-skills",
+      "sourceType": "github",
+      "computedHash": "28c23d9124f908c445047e65ab7c842c0f16e661153aa819a367498e2b6b4faf"
+    }
+  }
+}
