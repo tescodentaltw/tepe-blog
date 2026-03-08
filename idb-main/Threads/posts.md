@@ -4,6 +4,8 @@
 
 ## Post 1：你的牙齒其實只刷了 60%
 
+![牙刷只能清潔70%的牙齒表面](../../graphics/idb-牙間刷-簡介/idb-cleans-remaining-30-percent-gaps.webp)
+
 每天早晚乖乖刷牙，結果去看牙醫還是被說有牙結石？
 
 不是你不努力，是牙刷本來就只能清到 60% 的牙齒表面。
@@ -16,11 +18,11 @@
 
 試過就回不去了 👉 https://tepetw.com/collections/idb
 
-📸 建議圖片：`graphics/idb-牙間刷-簡介/idb-cleans-remaining-30-percent-gaps.webp`
-
 ---
 
 ## Post 2：牙線跟牙間刷到底差在哪？
+
+![牙間刷vs牙線比較](../../graphics/idb-牙間刷-簡介/idb-vs-floss-comparison.webp)
 
 很多人問：「我有用牙線了，幹嘛還要牙間刷？」
 
@@ -36,11 +38,11 @@
 
 最佳解：門牙用牙線，後牙用牙間刷 ✌️
 
-📸 建議圖片：`graphics/idb-牙間刷-簡介/idb-vs-floss-comparison.webp`
-
 ---
 
 ## Post 3：牙間刷尺寸選不對，等於白用
+
+![TePe牙間刷9種尺寸色碼](../../images/idb-I型牙間刷-普通刷毛/feature1.webp)
 
 選牙間刷最重要的一件事：尺寸
 
@@ -58,11 +60,11 @@ TePe 用顏色分尺寸，很好認：
 
 👉 https://tepetw.com/collections/idb
 
-📸 建議圖片：`images/idb-I型牙間刷-普通刷毛/feature1.webp`
-
 ---
 
 ## Post 4：90% 的人搞錯的事：牙間刷要在刷牙「前」用
+
+![牙間刷清潔前牙牙縫](../../graphics/idb-牙間刷-大小選擇/green-idb-cleaning-front-teeth-gap.webp)
 
 你是不是刷完牙才用牙間刷？
 
@@ -76,11 +78,11 @@ TePe 用顏色分尺寸，很好認：
 
 今天開始改變順序，效果差很多 💡
 
-📸 建議圖片：`graphics/idb-牙間刷-大小選擇/green-idb-cleaning-front-teeth-gap.webp`
-
 ---
 
 ## Post 5：「用牙間刷牙縫會變大」是真的嗎？
+
+![TePe牙間刷結構設計](../../graphics/idb-牙間刷-簡介/idb-structural-design-parts-labeled.webp)
 
 不是。這是最常見的誤解。
 
@@ -95,5 +97,3 @@ TePe 用顏色分尺寸，很好認：
 所以因果關係剛好相反。
 
 另外，初期用會流一點血也是正常的，代表那邊牙齦在發炎。持續用 3-5 天通常就不會了。超過兩週還在流就去看醫生 🙏
-
-📸 建議圖片：`graphics/idb-牙間刷-簡介/idb-structural-design-parts-labeled.webp`
