@@ -5,7 +5,7 @@
 ## Post 1：輪播貼文 — 你不知道的牙縫清潔真相
 
 **Caption：**
-你每天刷牙，但其實只清潔了 60% 的牙齒表面 🫣
+你每天刷牙，但其實只清潔了 70% 的牙齒表面 🫣
 
 滑動看完這 5 張，你會重新認識「刷牙」這件事 👉
 
@@ -18,19 +18,28 @@ TePe® 牙間刷系列
 https://tepetw.com/collections/idb
 
 **輪播內容建議：**
-- Slide 1：「你的牙齒只刷了 60%」（大字標題 + 驚訝表情）
+- Slide 1：「你的牙齒只刷了 70%」（大字標題 + 驚訝表情）
+
   ![牙刷只能清潔70%的牙齒表面](../../graphics/idb-牙間刷-簡介/idb-cleans-remaining-30-percent-gaps.webp)
-- Slide 2：「剩下 40% 藏在牙縫裡」（牙縫汙垢示意圖）
+
+- Slide 2：「剩下 30% 藏在牙縫裡」（牙縫汙垢示意圖）
+
   ![牙縫間隙解剖圖](../../graphics/idb-牙間刷-大小選擇/medium-gap-tooth-anatomy.webp)
+
 - Slide 3：「牙刷碰不到的死角 = 牙周病的溫床」
+
   ![牙菌斑堆積引發牙齦炎](../../graphics/edu-牙菌膜/plaque-in-gum-sulcus-early-gingivitis.webp)
+
 - Slide 4：「牙間刷 360° 深入牙縫清潔」（產品示意圖）
+
   ![牙間刷360度刷毛深入牙縫清潔](../../graphics/idb-牙間刷-簡介/idb-cylindrical-bristles-98-wire-coverage.webp)
-- Slide 5：「搭配牙刷，清潔率直衝 90%↑」（CTA：連結在 bio）
+
+- Slide 5：「搭配牙刷，清潔率直衝 90%↑」
+
   ![TePe牙間刷混色包](../../images/idb-I型牙間刷-普通刷毛/cover.webp)
 
 **Hashtags：**
-#牙間刷 #口腔護理 #TePe #牙齒保健 #牙周病預防 #潔牙 #牙縫清潔 #刷牙 #口腔健康 #牙醫推薦 #dentalcare #oralhealth #interdental #tepebrush #健康生活
+# 牙間刷 #口腔護理 #TePe #牙齒保健 #牙周病預防 #潔牙 #牙縫清潔 #刷牙 #口腔健康 #牙醫推薦 #dentalcare #oralhealth #interdental #tepebrush #健康生活
 
 ---
 
@@ -60,7 +69,7 @@ TePe® 牙間刷系列
 https://tepetw.com/collections/idb
 
 **Hashtags：**
-#牙間刷 #牙線 #口腔護理 #TePe #牙齒保健 #潔牙工具 #牙縫清潔 #牙醫推薦 #oralcare #dentalcare #interdental #floss #健康習慣 #每日保養 #口腔健康
+# 牙間刷 #牙線 #口腔護理 #TePe #牙齒保健 #潔牙工具 #牙縫清潔 #牙醫推薦 #oralcare #dentalcare #interdental #floss #健康習慣 #每日保養 #口腔健康
 
 ---
 
@@ -85,20 +94,31 @@ https://tepetw.com/collections/idb
 
 **輪播內容建議：**
 - Slide 1：「牙間刷選對尺寸很重要」（標題頁）
+
   ![牙間刷ISO尺寸與通過孔徑對照](../../graphics/idb-牙間刷-大小選擇/idb-iso-passage-hole-diameter-chart.webp)
+
 - Slide 2：尺寸色碼對照（粉紅/橘/紅/藍/黃）
+
   ![TePe牙間刷9種尺寸色碼](../../images/idb-I型牙間刷-普通刷毛/feature1.webp)
+
 - Slide 3：「口訣：鐵絲小於齒縫，刷毛有微小摩擦」
+
   ![選擇能輕易放進牙縫的最大尺寸](../../graphics/idb-牙間刷-簡介/idb-choose-largest-fitting-size.webp)
+
 - Slide 4：步驟 1-2：對鏡定位 → 輕柔推入
+
   ![牙間刷輕柔推入前牙牙縫](../../graphics/idb-牙間刷-大小選擇/green-idb-cleaning-front-teeth-gap.webp)
+
 - Slide 5：步驟 3-4：水平來回 → 內外兼顧
+
   ![用手指折彎牙間刷頸部清潔後牙](../../graphics/idb-牙間刷-大小選擇/hand-bending-green-idb-for-back-teeth.webp)
-- Slide 6：「記得在刷牙前使用！」（CTA）
+
+- Slide 6：「記得在刷牙前使用！」
+
   ![TePe牙間刷混色包](../../images/idb-I型牙間刷-普通刷毛/cover.webp)
 
 **Hashtags：**
-#牙間刷 #口腔護理 #TePe #牙間刷用法 #潔牙教學 #牙齒保健 #牙縫清潔 #新手必看 #dentalcare #oralhealth #interdental #howtouse #牙醫推薦 #健康生活 #口腔健康
+# 牙間刷 #口腔護理 #TePe #牙間刷用法 #潔牙教學 #牙齒保健 #牙縫清潔 #新手必看 #dentalcare #oralhealth #interdental #howtouse #牙醫推薦 #健康生活 #口腔健康
 
 ---
 
@@ -121,18 +141,27 @@ https://tepetw.com/collections/idb
 
 **輪播內容建議：**
 - Slide 1：「這 4 種人最需要牙間刷」（標題頁）
+
   ![牙間刷使用情境總覽](../../graphics/idb-牙間刷-簡介/idb-usage-scenarios-overview.webp)
+
 - Slide 2：牙周病患者 / 牙齦萎縮者 — 清潔黑三角區域
+
   ![牙間刷清潔牙齦萎縮處外露牙根](../../graphics/idb-牙間刷-用於牙周病/green-idb-cleaning-exposed-root-periodontal.webp)
+
 - Slide 3：矯正族（小鋼牙）— 清潔鋼絲與托架死角
+
   ![牙間刷清潔矯正器鋼絲下方](../../graphics/idb-牙間刷-用於矯正器/pink-idb-cleaning-under-ortho-wire.webp)
+
 - Slide 4：植牙 / 假牙使用者 — 預防植體周圍炎
+
   ![牙間刷清潔植牙與自然牙縫隙](../../graphics/idb-牙間刷-用於植牙/green-idb-cleaning-implant-natural-tooth-gap.webp)
+
 - Slide 5：追求清新口氣的你 — 口臭元兇藏在牙縫
+
   ![牙間刷清潔後牙縫隙去除異味來源](../../graphics/idb-牙間刷-大小選擇/red-idb-cleaning-back-teeth-gap.webp)
 
 **Hashtags：**
-#牙間刷 #口腔護理 #TePe #牙周病 #矯正 #植牙 #牙齒矯正 #小鋼牙 #假牙清潔 #口臭 #牙齦萎縮 #dentalcare #oralhealth #braces #dentalimplant #口腔健康
+# 牙間刷 #口腔護理 #TePe #牙周病 #矯正 #植牙 #牙齒矯正 #小鋼牙 #假牙清潔 #口臭 #牙齦萎縮 #dentalcare #oralhealth #braces #dentalimplant #口腔健康
 
 ---
 
@@ -161,4 +190,4 @@ TePe® 牙間刷系列
 https://tepetw.com/collections/idb
 
 **Hashtags：**
-#牙間刷 #口腔護理 #TePe #牙齒保健 #迷思破解 #牙周病預防 #潔牙 #牙縫清潔 #健康知識 #dentalcare #oralhealth #mythbusting #dentalmyths #牙醫推薦 #口腔健康
+# 牙間刷 #口腔護理 #TePe #牙齒保健 #迷思破解 #牙周病預防 #潔牙 #牙縫清潔 #健康知識 #dentalcare #oralhealth #mythbusting #dentalmyths #牙醫推薦 #口腔健康

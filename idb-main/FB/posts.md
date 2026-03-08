@@ -6,6 +6,8 @@
 
 ![牙刷只能清潔70%的牙齒表面](../../graphics/idb-牙間刷-簡介/idb-cleans-remaining-30-percent-gaps.webp)
 
+【你的牙齒其實只刷了 70%】
+
 你知道嗎？即使每天早晚認真刷牙，你其實只清潔了 70% 的牙齒表面 😱
 
 剩下的 30% 藏在牙縫深處，是牙刷根本碰不到的地方。這些殘留的牙菌斑，正是牙齦發炎、口臭、甚至牙周病的元凶。
@@ -27,6 +29,8 @@ https://tepetw.com/collections/idb
 ## Post 2：牙間刷 vs 牙線，到底該用哪個？
 
 ![牙間刷vs牙線比較](../../graphics/idb-牙間刷-簡介/idb-vs-floss-comparison.webp)
+
+【牙間刷 vs 牙線，到底該用哪個？】
 
 「我已經有用牙線了，還需要牙間刷嗎？」🤔
 
@@ -54,6 +58,8 @@ https://tepetw.com/collections/idb
 ## Post 3：牙間刷尺寸怎麼選？新手必看攻略
 
 ![TePe牙間刷9種尺寸色碼](../../images/idb-I型牙間刷-普通刷毛/feature1.webp)
+
+【牙間刷尺寸怎麼選？新手必看攻略】
 
 選牙間刷最怕選錯尺寸 😣
 太小 → 清潔力不足
@@ -83,6 +89,8 @@ https://tepetw.com/collections/idb
 
 ![牙間刷清潔前牙牙縫](../../graphics/idb-牙間刷-大小選擇/green-idb-cleaning-front-teeth-gap.webp)
 
+【90% 的人搞錯了！牙間刷應該在刷牙「前」用】
+
 你是先刷牙再用牙間刷嗎？
 其實順序應該反過來 🔄
 
@@ -111,6 +119,8 @@ https://tepetw.com/collections/idb
 ## Post 5：破解牙間刷三大迷思 ❌➡️✅
 
 ![牙間刷適用場景總覽](../../graphics/idb-牙間刷-簡介/idb-usage-scenarios-overview.webp)
+
+【破解牙間刷三大迷思】
 
 關於牙間刷，你可能聽過這些說法 👇
 
