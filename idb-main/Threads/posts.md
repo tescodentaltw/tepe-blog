@@ -2,21 +2,27 @@
 
 ---
 
-## Post 1：你的牙齒其實只刷了 60%
+## Post 1：你的牙齒其實只刷了 70%
 
 ![牙刷只能清潔70%的牙齒表面](../../graphics/idb-牙間刷-簡介/idb-cleans-remaining-30-percent-gaps.webp)
 
 每天早晚乖乖刷牙，結果去看牙醫還是被說有牙結石？
 
-不是你不努力，是牙刷本來就只能清到 60% 的牙齒表面。
+不是你不努力，是牙刷本來就只能清到 70% 的牙齒表面。
 
-剩下 40% 全塞在牙縫裡，牙刷根本碰不到 😅
+剩下 30% 全塞在牙縫裡，牙刷根本碰不到 😅
 
 解法很簡單：加一支牙間刷。
 
 它就像迷你版的瓶刷，推進牙縫就能 360° 把髒東西刷出來。搭配牙刷用，清潔率直接衝到 90% 以上。
 
-試過就回不去了 👉 https://tepetw.com/collections/idb
+試過就回不去了
+
+👉 伸延閱讀: 【2026 牙間刷終極指南，從尺寸、挑選、到正確用法，讓你遠離牙周病與植牙危機！】
+https://tepetw.com/blogs/interdental/idb-main
+
+TePe® 牙間刷系列
+https://tepetw.com/collections/idb
 
 ---
 
@@ -38,6 +44,12 @@
 
 最佳解：門牙用牙線，後牙用牙間刷 ✌️
 
+👉 伸延閱讀: 【2026 牙間刷終極指南，從尺寸、挑選、到正確用法，讓你遠離牙周病與植牙危機！】
+https://tepetw.com/blogs/interdental/idb-main
+
+TePe® 牙間刷系列
+https://tepetw.com/collections/idb
+
 ---
 
 ## Post 3：牙間刷尺寸選不對，等於白用
@@ -58,7 +70,11 @@ TePe 用顏色分尺寸，很好認：
 
 我的建議：直接買混色包回家試，通常一個人會需要 2-3 種尺寸，因為每個牙縫寬度不一樣
 
-👉 https://tepetw.com/collections/idb
+👉 伸延閱讀: 【2026 牙間刷終極指南，從尺寸、挑選、到正確用法，讓你遠離牙周病與植牙危機！】
+https://tepetw.com/blogs/interdental/idb-main
+
+TePe® 牙間刷系列
+https://tepetw.com/collections/idb
 
 ---
 
@@ -77,6 +93,12 @@ TePe 用顏色分尺寸，很好認：
 如果牙縫裡塞滿食物殘渣和牙菌斑，氟化物根本進不去，等於白塗。
 
 今天開始改變順序，效果差很多 💡
+
+👉 伸延閱讀: 【2026 牙間刷終極指南，從尺寸、挑選、到正確用法，讓你遠離牙周病與植牙危機！】
+https://tepetw.com/blogs/interdental/idb-main
+
+TePe® 牙間刷系列
+https://tepetw.com/collections/idb
 
 ---
 
@@ -97,3 +119,9 @@ TePe 用顏色分尺寸，很好認：
 所以因果關係剛好相反。
 
 另外，初期用會流一點血也是正常的，代表那邊牙齦在發炎。持續用 3-5 天通常就不會了。超過兩週還在流就去看醫生 🙏
+
+👉 伸延閱讀: 【2026 牙間刷終極指南，從尺寸、挑選、到正確用法，讓你遠離牙周病與植牙危機！】
+https://tepetw.com/blogs/interdental/idb-main
+
+TePe® 牙間刷系列
+https://tepetw.com/collections/idb
