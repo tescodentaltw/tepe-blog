@@ -13,6 +13,7 @@ GitHub: https://github.com/hoishing/tepe-blog
 ```
 graphics/          # Educational illustrations & marketing graphics (.webp)
 images/            # Product photography (.webp)
+tools/             # Utility scripts (Python, run with uv)
 idb-main/          # Long-form content hub (markdown + social media folders)
   ├── idb-main.md  # Comprehensive IDB guide (source content for repurposing)
   ├── FB/          # Facebook posts
@@ -37,9 +38,10 @@ The intended pipeline for each content piece:
 1. **Write core content** → long-form markdown (e.g., `idb-main/idb-main.md`)
 2. **SEO optimize** → use `seo-content-writer` skill
 3. **Gap analysis** → use `content-gap-analysis` skill to find opportunities
-4. **Repurpose** → use `social-media-content-repurposer` skill to adapt for platforms
-5. **Create posts** → use `social-media` skill for platform-specific content
-6. **Save to folders** → place results in `FB/`, `IG/`, `Threads/` subdirectories
+4. **Publish to Shopify** → use `blog-publisher` skill to add images and generate HTML
+5. **Repurpose** → use `social-media-content-repurposer` skill to adapt for platforms
+6. **Create posts** → use `social-media` skill for platform-specific content
+7. **Save to folders** → place results in `FB/`, `IG/`, `Threads/` subdirectories
 
 ## Installed Skills
 
@@ -49,6 +51,23 @@ The intended pipeline for each content piece:
 | `content-gap-analysis` | aaron-he-zhu/seo-geo-claude-skills | Identify content gaps and opportunities |
 | `social-media` | langchain-ai/deepagents | Platform-specific social media content (FB, IG, Threads, LinkedIn, X) |
 | `social-media-content-repurposer` | onewave-ai/claude-skills | Convert long-form content into multi-platform posts |
+| `blog-publisher` | local | Insert images from images/ & graphics/, generate Shopify HTML |
+
+## Tools
+
+### md2html — Markdown to Shopify HTML converter
+
+Converts markdown blog posts to content-only HTML (no `<html>/<head>/<body>` wrapper) for pasting into Shopify. Relative image paths are converted to public GitHub raw URLs with proper percent-encoding.
+
+```
+uv run tools/md2html.py <markdown-file>
+```
+
+Example:
+```
+uv run tools/md2html.py idb-main/idb-main.md
+# outputs: idb-main/idb-main.html
+```
 
 ## Important Notes
 
