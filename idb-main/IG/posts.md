@@ -10,7 +10,12 @@
 滑動看完這 5 張，你會重新認識「刷牙」這件事 👉
 
 牙間刷 + 牙刷，才是完整潔牙的黃金組合 ✨
-連結在 bio 🔗
+
+👉 伸延閱讀: 【2026 牙間刷終極指南，從尺寸、挑選、到正確用法，讓你遠離牙周病與植牙危機！】
+https://tepetw.com/blogs/interdental/idb-main
+
+TePe® 牙間刷系列
+https://tepetw.com/collections/idb
 
 **輪播內容建議：**
 - Slide 1：「你的牙齒只刷了 60%」（大字標題 + 驚訝表情）
@@ -46,7 +51,13 @@
 
 專業牙醫的建議：兩者併用才完整 ✌️
 
-想挑選適合你的牙間刷？連結在 bio 🔗
+想挑選適合你的牙間刷？
+
+👉 伸延閱讀: 【2026 牙間刷終極指南，從尺寸、挑選、到正確用法，讓你遠離牙周病與植牙危機！】
+https://tepetw.com/blogs/interdental/idb-main
+
+TePe® 牙間刷系列
+https://tepetw.com/collections/idb
 
 **Hashtags：**
 #牙間刷 #牙線 #口腔護理 #TePe #牙齒保健 #潔牙工具 #牙縫清潔 #牙醫推薦 #oralcare #dentalcare #interdental #floss #健康習慣 #每日保養 #口腔健康
@@ -66,7 +77,11 @@ TePe 用顏色分尺寸，選起來超直覺
 正確用法的關鍵：要在刷牙「前」使用！
 先清空牙縫 → 再刷牙讓氟化物滲透 💡
 
-連結在 bio 🔗
+👉 伸延閱讀: 【2026 牙間刷終極指南，從尺寸、挑選、到正確用法，讓你遠離牙周病與植牙危機！】
+https://tepetw.com/blogs/interdental/idb-main
+
+TePe® 牙間刷系列
+https://tepetw.com/collections/idb
 
 **輪播內容建議：**
 - Slide 1：「牙間刷選對尺寸很重要」（標題頁）
@@ -98,7 +113,11 @@ TePe 用顏色分尺寸，選起來超直覺
 
 你是哪一類？留言告訴我 💬
 
-連結在 bio 🔗
+👉 伸延閱讀: 【2026 牙間刷終極指南，從尺寸、挑選、到正確用法，讓你遠離牙周病與植牙危機！】
+https://tepetw.com/blogs/interdental/idb-main
+
+TePe® 牙間刷系列
+https://tepetw.com/collections/idb
 
 **輪播內容建議：**
 - Slide 1：「這 4 種人最需要牙間刷」（標題頁）
@@ -135,7 +154,11 @@ TePe 用顏色分尺寸，選起來超直覺
 
 別讓迷思擋住你的口腔健康之路 💙
 
-連結在 bio 🔗
+👉 伸延閱讀: 【2026 牙間刷終極指南，從尺寸、挑選、到正確用法，讓你遠離牙周病與植牙危機！】
+https://tepetw.com/blogs/interdental/idb-main
+
+TePe® 牙間刷系列
+https://tepetw.com/collections/idb
 
 **Hashtags：**
 #牙間刷 #口腔護理 #TePe #牙齒保健 #迷思破解 #牙周病預防 #潔牙 #牙縫清潔 #健康知識 #dentalcare #oralhealth #mythbusting #dentalmyths #牙醫推薦 #口腔健康
