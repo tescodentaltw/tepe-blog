@@ -26,7 +26,7 @@ from urllib.parse import quote
 
 import markdown
 
-GITHUB_RAW_BASE = "https://raw.githubusercontent.com/hoishing/tepe-blog/main"
+GITHUB_RAW_BASE = "https://raw.githubusercontent.com/tescodentaltw/tepe-blog/main"
 
 
 def get_repo_root() -> Path:
