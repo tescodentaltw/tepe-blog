@@ -38,7 +38,8 @@ The intended pipeline for each content piece:
 1. **Write core content** → long-form markdown (e.g., `idb-main/idb-main.md`)
 2. **SEO optimize** → use `seo-content-writer` skill
 3. **Gap analysis** → use `content-gap-analysis` skill to find opportunities
-4. **Publish to Shopify** → use `blog-publisher` skill to add images and generate HTML
+4. **Prepare for Shopify** → use `blog-publisher` skill to add images and generate HTML
+4b. **Push to Shopify** → use `shopify-publisher` skill to create/update draft articles via GraphQL API
 5. **Generate SNS posts** → use `sns-post-generator` skill to create FB & IG posts with images and CTA
 6. **Repurpose** → use `social-media-content-repurposer` skill to adapt for additional platforms
 7. **Create posts** → use `social-media` skill for platform-specific content (LinkedIn, X)
@@ -53,6 +54,7 @@ The intended pipeline for each content piece:
 | `social-media` | langchain-ai/deepagents | Platform-specific social media content (FB, IG, Threads, LinkedIn, X) |
 | `social-media-content-repurposer` | onewave-ai/claude-skills | Convert long-form content into multi-platform posts |
 | `blog-publisher` | local | Insert images from images/ & graphics/, generate Shopify HTML |
+| `shopify-publisher` | local | Publish articles to Shopify via GraphQL API, manage cover images |
 | `sns-post-generator` | local | Generate FB & IG posts from blog post with images and CTA links |
 
 ## Tools
@@ -69,6 +71,17 @@ Example:
 ```
 uv run tools/md2html.py idb-main/idb-main.md
 # outputs: idb-main/idb-main.html
+```
+
+### publish_to_shopify — Shopify article publisher
+
+Publishes markdown blog posts to Shopify as draft articles via Admin GraphQL API. Requires `SHOPIFY_STORE`, `SHOPIFY_CLIENT_ID`, `SHOPIFY_CLIENT_SECRET` in `.env`.
+
+```
+uv run tools/publish_to_shopify.py --all                 # Publish all configured posts
+uv run tools/publish_to_shopify.py post.md               # Publish specific file
+uv run tools/publish_to_shopify.py --all --update         # Update existing articles
+uv run tools/publish_to_shopify.py --list-blogs           # List available blogs
 ```
 
 ## Important Notes
