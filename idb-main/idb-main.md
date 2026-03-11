@@ -4,11 +4,6 @@
 
 根據臨床研究，單純使用牙刷只能清除約 60% 的牙齒表面牙垢，剩下的 40% 則隱藏在牙齒之間的鄰接面與隙縫中。而牙間刷（Interdental Brush）正是目前牙醫界公認，補足這「最後一哩路」的潔牙神器。本指南將帶您從零開始認識牙間刷，透過詳盡的深度解析，幫助您挑選到最適合的產品，守護一輩子的口腔健康。
 
-<figure align="center">
-  <img src="../images/idb-I型牙間刷-普通刷毛/cover.webp" alt="TePe 牙間刷混色包產品照">
-  <figcaption>TePe 牙間刷混色包（一般刷毛）</figcaption>
-</figure>
-
 ## 牙間刷是什麼？揭開「牙縫清潔英雄」的神祕面紗
 
 ### 牙間刷的構造與設計原理
@@ -256,3 +251,8 @@
 從今天起，給自己一個機會。準備一組高品質的 TePe 牙間刷，每天花 2 分鐘，在刷牙前細心清理每一個牙縫。這不僅是為了防止蛀牙，更是為了保住您的牙齦與牙根，讓您在 80 歲時依然能擁有一口好牙，享受美食人生。
 
 現在就去[挑選您的第一支牙間刷](https://tepetw.com/collections/idb)吧！
+
+<figure align="center">
+  <a href="https://tepetw.com/products/interdental-brush-original-i-normal"><img src="../images/idb-I型牙間刷-普通刷毛/cover.webp" alt="TePe 牙間刷混色包產品照"></a>
+  <figcaption>TePe 牙間刷混色包（一般刷毛）</figcaption>
+</figure>

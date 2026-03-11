@@ -84,7 +84,7 @@ MAX_IMG_SIZE = 600
 
 def add_img_max_size(html: str) -> str:
     """Add max-width and max-height to all <img> tags."""
-    style = f"max-width: {MAX_IMG_SIZE}px; max-height: {MAX_IMG_SIZE}px; height: auto;"
+    style = f"display: block; margin: 0 auto; max-width: {MAX_IMG_SIZE}px; max-height: {MAX_IMG_SIZE}px; height: auto;"
     return re.sub(
         r"<img ",
         f'<img style="{style}" ',

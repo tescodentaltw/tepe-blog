@@ -6,7 +6,7 @@ description: >
   and cover image upload. Use when user says "publish to shopify", "upload to shopify",
   "shopify-publisher", "push articles to shopify", "update shopify articles",
   "upload cover images", or any task involving Shopify article management.
-  Also use when other skills (like blog-publisher) have generated HTML and the user
+  Also use when other skills (like blog-image-prep) have generated HTML and the user
   wants to push it to Shopify.
 user_invocable: true
 metadata:
@@ -53,7 +53,7 @@ The script obtains an access token automatically via OAuth `client_credentials` 
 
 ### Step 1: Ensure HTML Exists
 
-Each markdown file needs a corresponding `.html` file for Shopify. The `blog-publisher` skill or `tools/md2html.py` handles this conversion.
+Each markdown file needs a corresponding `.html` file for Shopify. The `blog-image-prep` skill or `tools/md2html.py` handles this conversion.
 
 If the HTML file is missing or older than the markdown:
 

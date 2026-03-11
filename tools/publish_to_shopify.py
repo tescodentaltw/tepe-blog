@@ -17,17 +17,21 @@ Usage:
     uv run tools/publish_to_shopify.py --all --dry-run
     uv run tools/publish_to_shopify.py --all --update
     uv run tools/publish_to_shopify.py --list-blogs
+    uv run tools/publish_to_shopify.py post.md --blog "Blog" --template-suffix "blogs-no-feature-img"
+    uv run tools/publish_to_shopify.py post.md --cover-image "graphics/img.webp" --meta-description "描述"
 """
 
 import argparse
 import subprocess
 from pathlib import Path
+from urllib.parse import quote
 
 import httpx
 from dotenv import load_dotenv
 import os
 
 SHOPIFY_API_VERSION = "2025-01"
+GITHUB_RAW_BASE = "https://raw.githubusercontent.com/tescodentaltw/tepe-blog/main"
 
 BLOG_POSTS = [
     "idb-main/idb-why-you-only-clean-70-percent.md",
@@ -48,6 +52,12 @@ def get_repo_root() -> Path:
         check=True,
     )
     return Path(result.stdout.strip())
+
+
+def encode_path_for_url(repo_relative_path: str) -> str:
+    """URL-encode each segment of a repo-relative path, preserving slashes."""
+    segments = repo_relative_path.split("/")
+    return "/".join(quote(seg, safe="") for seg in segments)
 
 
 def get_access_token(store: str, client_id: str, client_secret: str) -> str:
@@ -112,23 +122,38 @@ def find_blog_id(store: str, token: str, title: str) -> str:
     raise SystemExit(f"Blog '{title}' not found. Available blogs: {titles}")
 
 
-def find_existing_article(store: str, token: str, blog_id: str, title: str) -> dict | None:
-    """Check if an article with the given title exists in the blog."""
+def find_existing_article(store: str, token: str, blog_id: str, handle: str) -> dict | None:
+    """Check if an article with the given handle exists in the blog."""
     data = graphql(store, token, """
-        query findArticle($query: String!) {
-            articles(first: 5, query: $query) {
-                nodes { id title blog { id } }
+        query($blogId: ID!) {
+            blog(id: $blogId) {
+                articles(first: 50) {
+                    nodes { id title handle }
+                }
             }
         }
-    """, {"query": f"title:'{title}'"})
-    for article in data["articles"]["nodes"]:
-        if article["title"] == title and article["blog"]["id"] == blog_id:
+    """, {"blogId": blog_id})
+    for article in data["blog"]["articles"]["nodes"]:
+        if article["handle"] == handle:
             return article
     return None
 
 
-def create_article(store: str, token: str, blog_id: str, title: str, handle: str, body: str) -> dict:
+def create_article(
+    store: str, token: str, blog_id: str, title: str, handle: str, body: str,
+    template_suffix: str | None = None,
+) -> dict:
     """Create a draft article in the specified blog."""
+    article_input = {
+        "blogId": blog_id,
+        "title": title,
+        "handle": handle,
+        "body": body,
+        "isPublished": False,
+        "author": {"name": "TePe"},
+    }
+    if template_suffix:
+        article_input["templateSuffix"] = template_suffix
     data = graphql(store, token, """
         mutation articleCreate($article: ArticleCreateInput!) {
             articleCreate(article: $article) {
@@ -136,16 +161,7 @@ def create_article(store: str, token: str, blog_id: str, title: str, handle: str
                 userErrors { field message }
             }
         }
-    """, {
-        "article": {
-            "blogId": blog_id,
-            "title": title,
-            "handle": handle,
-            "body": body,
-            "isPublished": False,
-            "author": {"name": "TePe"},
-        }
-    })
+    """, {"article": article_input})
     result = data["articleCreate"]
     if result["userErrors"]:
         errors = "; ".join(f"{e['field']}: {e['message']}" for e in result["userErrors"])
@@ -153,8 +169,19 @@ def create_article(store: str, token: str, blog_id: str, title: str, handle: str
     return result["article"]
 
 
-def update_article(store: str, token: str, article_id: str, title: str, handle: str, body: str) -> dict:
+def update_article(
+    store: str, token: str, article_id: str, title: str, handle: str, body: str,
+    template_suffix: str | None = None,
+) -> dict:
     """Update an existing article."""
+    article_input = {
+        "title": title,
+        "handle": handle,
+        "body": body,
+        "isPublished": False,
+    }
+    if template_suffix:
+        article_input["templateSuffix"] = template_suffix
     data = graphql(store, token, """
         mutation articleUpdate($id: ID!, $article: ArticleUpdateInput!) {
             articleUpdate(id: $id, article: $article) {
@@ -162,20 +189,45 @@ def update_article(store: str, token: str, article_id: str, title: str, handle: 
                 userErrors { field message }
             }
         }
-    """, {
-        "id": article_id,
-        "article": {
-            "title": title,
-            "handle": handle,
-            "body": body,
-            "isPublished": False,
-        }
-    })
+    """, {"id": article_id, "article": article_input})
     result = data["articleUpdate"]
     if result["userErrors"]:
         errors = "; ".join(f"{e['field']}: {e['message']}" for e in result["userErrors"])
         raise RuntimeError(f"Failed to update '{title}': {errors}")
     return result["article"]
+
+
+def set_cover_image(store: str, token: str, article_id: str, image_path: str, alt_text: str) -> None:
+    """Set the cover image on an article via GitHub raw URL."""
+    encoded = encode_path_for_url(image_path)
+    url = f"{GITHUB_RAW_BASE}/{encoded}"
+    data = graphql(store, token, """
+        mutation articleUpdate($id: ID!, $article: ArticleUpdateInput!) {
+            articleUpdate(id: $id, article: $article) {
+                article { id image { url } }
+                userErrors { field message }
+            }
+        }
+    """, {"id": article_id, "article": {"image": {"altText": alt_text, "url": url}}})
+    result = data["articleUpdate"]
+    if result["userErrors"]:
+        errors = "; ".join(f"{e['field']}: {e['message']}" for e in result["userErrors"])
+        raise RuntimeError(f"Failed to set cover image: {errors}")
+    print(f"  Cover: {result['article']['image']['url']}")
+
+
+def set_meta_description(store: str, token: str, article_id: str, description: str) -> None:
+    """Set SEO meta description via REST API (GraphQL doesn't support seo on articles)."""
+    numeric_id = article_id.split("/")[-1]
+    url = f"https://{store}/admin/api/{SHOPIFY_API_VERSION}/articles/{numeric_id}.json"
+    resp = httpx.put(
+        url,
+        json={"article": {"id": int(numeric_id), "metafields_global_description_tag": description}},
+        headers={"X-Shopify-Access-Token": token, "Content-Type": "application/json"},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    print(f"  Meta: {description[:60]}...")
 
 
 def extract_title(md_path: Path) -> str:
@@ -207,6 +259,9 @@ def main():
     parser.add_argument("--update", action="store_true", help="Update existing articles instead of skipping")
     parser.add_argument("--list-blogs", action="store_true", help="List all blogs on the store and exit")
     parser.add_argument("--blog", default=BLOG_TITLE, help=f"Blog title to publish to (default: {BLOG_TITLE})")
+    parser.add_argument("--template-suffix", help="Set template suffix on the article (e.g., blogs-no-feature-img)")
+    parser.add_argument("--cover-image", help="Set cover image (repo-relative path, resolved to GitHub raw URL)")
+    parser.add_argument("--meta-description", help="Set SEO meta description")
     args = parser.parse_args()
 
     load_dotenv()
@@ -260,6 +315,13 @@ def main():
 
         if args.dry_run:
             print(f"DRY RUN: '{title}' (handle: {handle})")
+            if args.template_suffix:
+                print(f"  Template: {args.template_suffix}")
+            if args.cover_image:
+                print(f"  Cover: {args.cover_image}")
+            if args.meta_description:
+                print(f"  Meta: {args.meta_description}")
+            print()
             continue
 
         # Generate HTML
@@ -267,20 +329,29 @@ def main():
         body = html_path.read_text("utf-8")
 
         # Check for duplicates
-        existing = find_existing_article(store, token, blog_id, title)
+        existing = find_existing_article(store, token, blog_id, handle)
 
         if existing and not args.update:
             print(f"SKIP (exists): {title}")
             continue
 
         if existing and args.update:
-            article = update_article(store, token, existing["id"], title, handle, body)
+            article = update_article(store, token, existing["id"], title, handle, body, args.template_suffix)
             print(f"UPDATED: {title}")
             print(f"  ID: {article['id']}")
         else:
-            article = create_article(store, token, blog_id, title, handle, body)
+            article = create_article(store, token, blog_id, title, handle, body, args.template_suffix)
             print(f"CREATED: {title}")
             print(f"  ID: {article['id']}")
+
+        # Set cover image if provided
+        if args.cover_image:
+            alt_text = title
+            set_cover_image(store, token, article["id"], args.cover_image, alt_text)
+
+        # Set meta description if provided
+        if args.meta_description:
+            set_meta_description(store, token, article["id"], args.meta_description)
 
         print()
 

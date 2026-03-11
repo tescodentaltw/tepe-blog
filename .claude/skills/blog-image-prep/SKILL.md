@@ -1,45 +1,47 @@
 ---
-name: blog-publisher
+name: blog-image-prep
 description: >
-  Prepare a markdown blog post for Shopify publishing. Scans images/ and graphics/ directories
-  for relevant assets, inserts centered figures with alt text and captions into the markdown,
-  then generates Shopify-ready HTML via tools/md2html.py. Use when user says "publish blog",
-  "prepare for Shopify", "add images to blog post", or "blog-publisher".
+  Discover and insert relevant images into a markdown blog post. Scans images/ and graphics/
+  directories for matching assets, views each image to verify relevance, then inserts centered
+  figure elements with alt text and captions. Use when user says "add images to blog",
+  "insert images", "blog-image-prep", "prepare blog images", or "find images for blog post".
 user_invocable: true
 metadata:
   author: TePe Blog
   tags:
     - blog
-    - shopify
     - images
-    - publishing
+    - markdown
   triggers:
-    - "publish blog"
-    - "prepare for shopify"
-    - "add images and generate html"
-    - "blog-publisher"
+    - "add images to blog"
+    - "insert images"
+    - "blog-image-prep"
+    - "prepare blog images"
+    - "find images for blog post"
 ---
 
-# Blog Publisher — Image Insertion & Shopify HTML Generator
+# Blog Image Prep — Discover & Insert Images into Markdown
 
-Automates the full workflow of preparing a markdown blog post for Shopify: discovering relevant images, inserting them with proper formatting, and generating content-only HTML.
+Discovers relevant images from `images/` and `graphics/` directories, views them to verify content, and inserts properly formatted `<figure>` elements into a markdown blog post.
 
 ## When to Use This Skill
 
 Activate when the user wants to:
-- Prepare a markdown blog post for publishing on Shopify
-- Add images and illustrations from `images/` and `graphics/` to a blog post
-- Generate Shopify-ready HTML from a markdown blog post
+- Add images and illustrations from `images/` and `graphics/` to a markdown blog post
+- Find relevant product photos or educational graphics for a blog post
+- Insert `<figure>` elements with alt text and captions into markdown
+
+This skill does NOT handle HTML conversion or Shopify publishing — use `shopify-publisher` for that.
 
 ## How to Use
 
 ```
-/blog-publisher <markdown-file>
+/blog-image-prep <markdown-file>
 ```
 
 Example:
 ```
-/blog-publisher idb-main/idb-main.md
+/blog-image-prep idb-main/idb-main.md
 ```
 
 ## Instructions
@@ -89,31 +91,18 @@ Insert images into the markdown using this exact HTML format:
 
 Rules:
 - **Placement**: Insert AFTER the paragraph the image illustrates, never before a heading
-- **Paths**: Use relative paths (`../images/...` or `../graphics/...`) — the md2html script handles URL conversion
+- **Paths**: Use relative paths (`../images/...` or `../graphics/...`)
 - **Alt text**: Concise, descriptive, for accessibility and SEO (can be in Chinese or English)
 - **Captions**: Written in Traditional Chinese, reader-friendly, describing what the image shows
 - **No duplicates**: Do not insert the same image twice
 - **Skip existing**: If the markdown already has `<figure>` elements, do not duplicate them
 
-### Step 6: Generate Shopify HTML
+### Step 6: Report Results
 
-Run the conversion script:
-
-```bash
-uv run tools/md2html.py <markdown-file>
-```
-
-This will:
-- Convert relative image paths to public GitHub raw URLs (percent-encoded)
-- Convert markdown to content-only HTML (no `<html>/<head>/<body>` wrapper)
-- Restrict all images to max 600x600px
-- Output a `.html` file next to the source markdown
-
-### Step 7: Verify Output
-
-1. Confirm the `.html` file was created
-2. Spot-check that image URLs in the HTML use `https://raw.githubusercontent.com/hoishing/tepe-blog/main/...`
-3. Report the output file path to the user
+Summarize what was done:
+- How many images were inserted
+- Which sections received images
+- Any sections where no suitable image was found
 
 ## Important Notes
 

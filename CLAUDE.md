@@ -38,12 +38,12 @@ The intended pipeline for each content piece:
 1. **Write core content** → long-form markdown (e.g., `idb-main/idb-main.md`)
 2. **SEO optimize** → use `seo-content-writer` skill
 3. **Gap analysis** → use `content-gap-analysis` skill to find opportunities
-4. **Prepare for Shopify** → use `blog-publisher` skill to add images and generate HTML
-4b. **Push to Shopify** → use `shopify-publisher` skill to create/update draft articles via GraphQL API
-5. **Generate SNS posts** → use `sns-post-generator` skill to create FB & IG posts with images and CTA
-6. **Repurpose** → use `social-media-content-repurposer` skill to adapt for additional platforms
-7. **Create posts** → use `social-media` skill for platform-specific content (LinkedIn, X)
-8. **Save to folders** → place results in `FB/`, `IG/`, `Threads/` subdirectories
+4. **Add images** → use `blog-image-prep` skill to discover and insert relevant images into markdown
+5. **Publish to Shopify** → use `shopify-publisher` skill to generate HTML and create/update draft articles
+6. **Generate content hub** → use `content-hub-generator` skill to create supporting blogs, FB & IG posts, and publish to Shopify
+7. **Repurpose** → use `social-media-content-repurposer` skill to adapt for additional platforms
+8. **Create posts** → use `social-media` skill for platform-specific content (LinkedIn, X)
+9. **Save to folders** → place results in `FB/`, `IG/`, `Threads/` subdirectories
 
 ## Installed Skills
 
@@ -53,9 +53,9 @@ The intended pipeline for each content piece:
 | `content-gap-analysis` | aaron-he-zhu/seo-geo-claude-skills | Identify content gaps and opportunities |
 | `social-media` | langchain-ai/deepagents | Platform-specific social media content (FB, IG, Threads, LinkedIn, X) |
 | `social-media-content-repurposer` | onewave-ai/claude-skills | Convert long-form content into multi-platform posts |
-| `blog-publisher` | local | Insert images from images/ & graphics/, generate Shopify HTML |
+| `blog-image-prep` | local | Discover & insert relevant images into markdown blog posts |
 | `shopify-publisher` | local | Publish articles to Shopify via GraphQL API, manage cover images |
-| `sns-post-generator` | local | Generate FB & IG posts from blog post with images and CTA links |
+| `content-hub-generator` | local | Generate supporting blogs, FB & IG posts from long-form content; publish to Shopify |
 
 ## Tools
 
@@ -82,6 +82,8 @@ uv run tools/publish_to_shopify.py --all                 # Publish all configure
 uv run tools/publish_to_shopify.py post.md               # Publish specific file
 uv run tools/publish_to_shopify.py --all --update         # Update existing articles
 uv run tools/publish_to_shopify.py --list-blogs           # List available blogs
+uv run tools/publish_to_shopify.py post.md --template-suffix "blogs-no-feature-img"
+uv run tools/publish_to_shopify.py post.md --cover-image "graphics/img.webp" --meta-description "描述"
 ```
 
 ## Important Notes
