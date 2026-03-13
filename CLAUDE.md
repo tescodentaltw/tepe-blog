@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Content repository for TePe dental products marketing — interdental brushes (IDB/牙間刷), toothbrushes, floss, and oral care accessories. All content is in Traditional Chinese targeting Hong Kong/Taiwan audiences.
+Content repository for TePe dental products marketing — interdental brushes (IDB/牙間刷), toothbrushes, floss, and oral care accessories. All content is in Traditional Chinese targeting Taiwan audiences.
 
 GitHub: https://github.com/hoishing/tepe-blog
 
@@ -13,10 +13,13 @@ GitHub: https://github.com/hoishing/tepe-blog
 ```
 graphics/          # Educational illustrations & marketing graphics (.webp)
 images/            # Product photography (.webp)
-tools/             # Utility scripts (Python, run with uv)
+tools/             # Python utility scripts (run with uv, inline dependencies)
 seo/               # Weekly SEO reports (YYYY-MM-DD-weekly-seo-report.md)
+feature-img/       # Feature images
+market-research/   # Market research files
 idb-main/          # Long-form content hub (markdown + social media folders)
   ├── idb-main.md  # Comprehensive IDB guide (source content for repurposing)
+  ├── covers/      # Generated cover images for blog posts
   ├── FB/          # Facebook posts
   ├── IG/          # Instagram posts
   └── Threads/     # Threads posts
@@ -60,18 +63,15 @@ The intended pipeline for each content piece:
 
 ## Tools
 
+All tools are standalone Python scripts with inline `uv` dependency declarations. Run with `uv run tools/<script>.py`.
+
 ### md2html — Markdown to Shopify HTML converter
 
 Converts markdown blog posts to content-only HTML (no `<html>/<head>/<body>` wrapper) for pasting into Shopify. Relative image paths are converted to public GitHub raw URLs with proper percent-encoding.
 
 ```
 uv run tools/md2html.py <markdown-file>
-```
-
-Example:
-```
-uv run tools/md2html.py idb-main/idb-main.md
-# outputs: idb-main/idb-main.html
+# outputs: <filename>.html in same directory
 ```
 
 ### publish_to_shopify — Shopify article publisher
@@ -87,9 +87,38 @@ uv run tools/publish_to_shopify.py post.md --template-suffix "blogs-no-feature-i
 uv run tools/publish_to_shopify.py post.md --cover-image "graphics/img.webp" --meta-description "描述"
 ```
 
+### update_cover_images — Shopify article cover image updater
+
+Updates cover/feature images on existing Shopify blog articles. Maps configured blog posts to image assets via GitHub raw URLs.
+
+```
+uv run tools/update_cover_images.py              # Update all configured cover images
+uv run tools/update_cover_images.py --dry-run     # Preview changes without applying
+```
+
+### update_collection_seo — Shopify collection SEO metadata
+
+Updates Shopify collection page SEO titles and descriptions via Admin GraphQL API. Has a built-in mapping of all 17 collection handles to SEO titles.
+
+```
+uv run tools/update_collection_seo.py --list              # List all collections with SEO info
+uv run tools/update_collection_seo.py --update            # Apply SEO title updates
+uv run tools/update_collection_seo.py --update --dry-run  # Preview changes
+```
+
+### update_product_descriptions — Shopify product description updater
+
+Lists products with CJK character counts and updates descriptions from a JSON file (handle → HTML mapping). Use with Claude Code sub-agents to generate SEO-friendly descriptions.
+
+```
+uv run tools/update_product_descriptions.py --list                        # List all products with CJK char counts
+uv run tools/update_product_descriptions.py --update descriptions.json    # Update from JSON file
+uv run tools/update_product_descriptions.py --update desc.json --dry-run  # Preview changes
+```
+
 ### seo_report — GSC + GA4 SEO performance report
 
-Pulls search performance (GSC) and site analytics (GA4) data using Application Default Credentials. Requires ADC login with `webmasters.readonly` and `analytics.readonly` scopes on the `tepe-seo` GCP project.
+Pulls search performance (GSC) and site analytics (GA4) data using Application Default Credentials. Requires ADC login on the `tepe-seo` GCP project.
 
 ```
 uv run tools/seo_report.py                  # Full report (GSC + GA4, 90 days)
@@ -100,7 +129,74 @@ uv run tools/seo_report.py --ga4-only       # GA4 data only
 
 GSC config: `sc-domain:tepetw.com` | GA4 property: `properties/517199426` (tepetw.com)
 
-Weekly SEO reports are saved to `seo/YYYY-MM-DD-weekly-seo-report.md`.
+ADC login (required scopes):
+```
+gcloud auth application-default login \
+  --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/webmasters,https://www.googleapis.com/auth/webmasters.readonly,https://www.googleapis.com/auth/analytics.readonly" \
+  --project=tepe-seo
+```
+
+### manage_sitemap — Google Search Console sitemap management
+
+List, submit, and delete sitemaps in GSC. Uses same ADC credentials as seo_report.
+
+```
+uv run tools/manage_sitemap.py --list                          # List current sitemaps
+uv run tools/manage_sitemap.py --submit "https://tepetw.com/sitemap.xml"
+uv run tools/manage_sitemap.py --delete "https://www.tepetw.com/sitemap.xml"
+```
+
+### generate_covers / extract_gemini_image — Cover image generation
+
+`generate_covers.py` generates blog cover images (800x450 webp) via Gemini web UI + agent-browser CDP (requires Chrome with `--remote-debugging-port=9222`). `extract_gemini_image.py` extracts base64 data URL images and resizes to webp.
+
+```
+uv run tools/generate_covers.py
+uv run tools/extract_gemini_image.py <input-base64-file> <output.webp> [--width 800] [--height 450]
+```
+
+## Shopify API Details
+
+- **Store**: `tepe-taiwan.myshopify.com` (domain: `tepetw.com`)
+- **API version**: `2025-01` (Admin GraphQL)
+- **Auth**: OAuth `client_credentials` grant (no manual token management)
+- **Default blog**: "牙縫清潔"
+- **Articles**: Created as drafts (`isPublished: false`), author "TePe"
+- **SEO meta descriptions**: Set via REST API (GraphQL doesn't support SEO fields on articles)
+- **Image URLs**: GitHub raw URLs from `https://raw.githubusercontent.com/tescodentaltw/tepe-blog/main` (images must be committed and pushed first)
+
+## Multi-Account CLI Setup
+
+### gcloud (multiple configurations)
+
+| Configuration | Account | Project |
+|---|---|---|
+| `default` | `tescodentaltw@gmail.com` | `tepe-seo` |
+| `ascdm` | `ascdm.cc@gmail.com` | `tepe-seo-ascdm` |
+
+```bash
+gcloud config configurations activate default  # switch to tescodentaltw
+gcloud config configurations activate ascdm    # switch to ascdm.cc
+```
+
+### gws (Google Workspace CLI — env var per account)
+
+gws does not support multiple profiles natively. Use `GOOGLE_WORKSPACE_CLI_CONFIG_DIR` to switch accounts:
+
+| Account | Config Dir |
+|---|---|
+| `tescodentaltw@gmail.com` (default) | `~/.config/gws` |
+| `ascdm.cc@gmail.com` | `~/.config/gws-ascdm` |
+
+```bash
+# tescodentaltw (default — no env var needed)
+gws drive files list --params '{"pageSize": 10}'
+
+# ascdm.cc — prefix with env var
+GOOGLE_WORKSPACE_CLI_CONFIG_DIR=~/.config/gws-ascdm gws drive files list --params '{"pageSize": 10}'
+```
+
+> `gws-ascdm` is authenticated as `ascdm.cc@gmail.com` (GCP project: `tepe-seo-ascdm`).
 
 ## Important Notes
 
