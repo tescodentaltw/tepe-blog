@@ -14,6 +14,7 @@ GitHub: https://github.com/hoishing/tepe-blog
 graphics/          # Educational illustrations & marketing graphics (.webp)
 images/            # Product photography (.webp)
 tools/             # Utility scripts (Python, run with uv)
+seo/               # Weekly SEO reports (YYYY-MM-DD-weekly-seo-report.md)
 idb-main/          # Long-form content hub (markdown + social media folders)
   ├── idb-main.md  # Comprehensive IDB guide (source content for repurposing)
   ├── FB/          # Facebook posts
@@ -85,6 +86,21 @@ uv run tools/publish_to_shopify.py --list-blogs           # List available blogs
 uv run tools/publish_to_shopify.py post.md --template-suffix "blogs-no-feature-img"
 uv run tools/publish_to_shopify.py post.md --cover-image "graphics/img.webp" --meta-description "描述"
 ```
+
+### seo_report — GSC + GA4 SEO performance report
+
+Pulls search performance (GSC) and site analytics (GA4) data using Application Default Credentials. Requires ADC login with `webmasters.readonly` and `analytics.readonly` scopes on the `tepe-seo` GCP project.
+
+```
+uv run tools/seo_report.py                  # Full report (GSC + GA4, 90 days)
+uv run tools/seo_report.py --days 30        # Last 30 days
+uv run tools/seo_report.py --gsc-only       # GSC data only
+uv run tools/seo_report.py --ga4-only       # GA4 data only
+```
+
+GSC config: `sc-domain:tepetw.com` | GA4 property: `properties/517199426` (tepetw.com)
+
+Weekly SEO reports are saved to `seo/YYYY-MM-DD-weekly-seo-report.md`.
 
 ## Important Notes
 
