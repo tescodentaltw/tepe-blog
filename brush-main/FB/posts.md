@@ -31,7 +31,7 @@ https://tepetw.com/collections/toothbrushes
 
 ## Post 2：兒童牙刷怎麼選？爸媽必看的選購重點
 
-![彩色兒童牙刷系列](../../images/brush-兒童牙刷-3歲以上/cover.webp)
+![彩色兒童牙刷系列](../../feature-img/child-1.webp)
 
 【兒童牙刷怎麼選？爸媽必看的選購重點】
 
