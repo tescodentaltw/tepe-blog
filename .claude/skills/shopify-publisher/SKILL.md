@@ -89,7 +89,7 @@ The script:
 To set featured/cover images on articles, use the `articleUpdate` GraphQL mutation with an image URL. The image must be publicly accessible — use GitHub raw URLs after pushing to the repo.
 
 **Workflow:**
-1. Generate cover images (use `nano-banana` skill, 800x450 px, 16:9, webp 85% quality)
+1. Prepare cover images (800x450 px, 16:9, webp 85% quality)
 2. Save to `idb-main/covers/<article-handle>.webp`
 3. Git commit and push so GitHub raw URLs work
 4. Call `articleUpdate` with the image URL

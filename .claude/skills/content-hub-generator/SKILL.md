@@ -117,11 +117,7 @@ For each relevant directory found in Step 3:
    - Instagram posts: 1-6 images per post depending on type
 5. Ensure a mix of product photography (from `images/`) and educational illustrations (from `graphics/`)
 
-If no suitable images are found for a particular post:
-- Use the `nano-banana` skill to generate an illustration
-- Reference the visual style of existing images in `graphics/` (clean line illustrations on white/light backgrounds with TePe brand colors)
-- **Save generated images in the corresponding FB/ or IG/ folder** (e.g., `<source-dir>/FB/generated-image-name.webp`)
-- Use local relative paths for generated images (e.g., `./generated-image-name.webp`)
+If no suitable images are found for a particular post, skip the image for that post rather than generating one.
 
 ### Step 5: Generate Supporting Blog Posts
 
@@ -357,7 +353,7 @@ Report to the user:
 2. Number of supporting blogs, FB posts, and IG posts
 3. Brief description of each angle/topic
 4. Shopify publishing status (created/updated, article IDs)
-5. Any images that were generated (via nano-banana) vs. found in existing assets
+5. Image sourcing summary (which existing assets were used)
 
 ## Important Notes
 
@@ -367,6 +363,5 @@ Report to the user:
 - The `images/` directories typically contain: `cover.webp`, `feature1.webp`, `feature2.webp`, `packing.webp`, `size-*.webp`
 - The `graphics/` directories contain descriptive filenames like `idb-vs-floss-comparison.webp`
 - Always view images before selecting them — filenames alone can be misleading
-- Generated images (via nano-banana) must be saved inside the corresponding FB/ or IG/ folder, not in the shared graphics/ or images/ directories
 - Supporting blog posts are saved alongside the main blog in the same directory
 - The `publish_to_shopify.py` tool handles HTML generation, article creation, cover images, meta descriptions, and template suffixes

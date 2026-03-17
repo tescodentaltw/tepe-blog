@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Content repository for TePe dental products marketing — interdental brushes (IDB/牙間刷), toothbrushes, floss, and oral care accessories. All content is in Traditional Chinese targeting Taiwan audiences.
 
-GitHub: https://github.com/hoishing/tepe-blog
+GitHub: https://github.com/tescodentaltw/tepe-blog
 
 ## Repository Structure
 
@@ -21,8 +21,7 @@ idb-main/          # Long-form content hub (markdown + social media folders)
   ├── idb-main.md  # Comprehensive IDB guide (source content for repurposing)
   ├── covers/      # Generated cover images for blog posts
   ├── FB/          # Facebook posts
-  ├── IG/          # Instagram posts
-  └── Threads/     # Threads posts
+  └── IG/          # Instagram posts
 ```
 
 ### Naming Conventions
@@ -144,15 +143,6 @@ List, submit, and delete sitemaps in GSC. Uses same ADC credentials as seo_repor
 uv run tools/manage_sitemap.py --list                          # List current sitemaps
 uv run tools/manage_sitemap.py --submit "https://tepetw.com/sitemap.xml"
 uv run tools/manage_sitemap.py --delete "https://www.tepetw.com/sitemap.xml"
-```
-
-### generate_covers / extract_gemini_image — Cover image generation
-
-`generate_covers.py` generates blog cover images (800x450 webp) via Gemini web UI + agent-browser CDP (requires Chrome with `--remote-debugging-port=9222`). `extract_gemini_image.py` extracts base64 data URL images and resizes to webp.
-
-```
-uv run tools/generate_covers.py
-uv run tools/extract_gemini_image.py <input-base64-file> <output.webp> [--width 800] [--height 450]
 ```
 
 ## Shopify API Details
