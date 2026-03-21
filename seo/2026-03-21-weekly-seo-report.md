@@ -96,27 +96,28 @@
 
 ## 二、核心 SEO 問題
 
-### 問題 1：新舊網站並存，流量分散（嚴重 — 改善中）
+### 問題 1：新舊網站並存，流量分散（已解決 ✅）
 
-**現況更新**：在最近 7 天的 GSC 數據中，舊站 URL 幾乎已消失（僅剩 `http://tepetw.com/` 1 click），顯示 Google 正在轉移排名至新站。但 90 天累計數據中，舊站仍佔大量流量：
+**現況更新**：經 2026-03-21 實測驗證，所有舊站 URL 均已正確回傳 301 轉址：
 
-| 頁面 | 90天點擊 | 7天點擊 | 趨勢 |
-|------|----------|---------|------|
-| www.tepetw.com/ | 205 | 0 | ↓ 消退中 |
-| www.tepetw.com/article_detail/11/ | 178 | 0 | ↓ 消退中 |
-| www.tepetw.com/products_detail/28 | 73 | 0 | ↓ 消退中 |
-| tepetw.com/（新站首頁） | 237 | 54 | ↑ 接管中 |
-| tepetw.com/blogs/pro-articles/bone-screw-part1 | 210 | 39 | ↑ 成長中 |
+| 舊站 URL | 301 目標 | 狀態 |
+|----------|----------|------|
+| `www.tepetw.com/` | `tepetw.com/` | ✅ |
+| `www.tepetw.com/article_detail/11/` | `tepetw.com/blogs/pro-articles/bone-screw-part1` | ✅ |
+| `www.tepetw.com/products_detail/28` | `tepetw.com/products/interdental-brush-original-i-normal` | ✅ |
+| `www.tepetw.com/products_detail/tepe-compact-tuft` | `tepetw.com/products/tepe-compact-tuft` | ✅ |
+| `www.tepetw.com/products/9/1` | `tepetw.com/products/9/1` | ✅ |
+| `www.tepetw.com/locations/34` | `tepetw.com/pages/sales-location` | ✅ |
 
-**評估**：流量轉移正在發生，但 301 轉址可能尚未完整設定。需確認 `www.tepetw.com` 是否已正確 301 到 `tepetw.com`。
+Shopify 內建 `canonical_host_redirection` 處理 www → 非 www 轉址，HTTP → HTTPS 由 Cloudflare 自動處理。近 7 天 GSC 數據中舊站 URL 幾乎已無流量，Google 正在完成排名轉移。90 天累計數據中舊站仍有歷史流量，預計隨時間滾動自然消退。
 
-### 問題 2：GA4 追蹤碼（已部分解決 ✅）
+### 問題 2：GA4 追蹤碼（已解決 ✅）
 
 **現況更新**：GA4 追蹤在 3 月恢復正常（442 sessions/20天），2 月資料永久遺失。
 
-**殘留問題**：需確認追蹤碼是否安裝在所有頁面，包括 Shopify 結帳流程。目前「(not set)」landing page 有 90 sessions（跳出率 98.9%），可能代表部分頁面仍未安裝追蹤碼。
+**「(not set)」landing page 排查結果**（2026-03-21 實測）：GA4 追蹤碼 `G-JY2RZHXP2H` 在所有頁面類型均正常載入（首頁、文章頁、產品頁、分類頁、購物車，每頁 2 個 gtag 實例）。90 sessions 的「(not set)」landing page（跳出率 98.9%）確認為 bot 流量，非追蹤碼遺漏。
 
-### 問題 3：高曝光關鍵字 CTR 仍低（重要 — 部分改善）
+### 問題 3：高曝光關鍵字 CTR 仍低（重要 — 部分改善，idb-main 已優化）
 
 | 關鍵字 | 曝光 | 點擊 | CTR | 排名 | vs 上週 |
 |--------|------|------|-----|------|---------|
@@ -132,6 +133,12 @@
 | l型牙間刷 | 208 | 2 | 1.0% | 4.3 | 排名微升 |
 
 > **亮點**：「牙間刷尺寸」從 1 click 躍升至 11 clicks（CTR 從 0.3% 升至 2.7%），排名從 10.9 進步至 8.7。新發佈的 `idb-size-guide` 文章正在發揮效果。
+
+**已採取行動**（2026-03-21）：`idb-main` 文章 SEO 欄位已透過 Shopify REST API 更新，目標改善「牙間刷」等多個高曝光關鍵字的 CTR：
+- SEO title：`牙間刷完整指南：尺寸選擇、正確用法與常見迷思｜TePe`（原為文章完整標題，過長不利 SERP 顯示）
+- Meta description：`牙間刷怎麼選？完整解析牙間刷尺寸對照、正確使用方法、多久換一次。搭配牙刷使用，有效清除 40% 牙縫死角，預防牙周病。`
+- 已驗證生效：`<title>`、`<meta description>`、`og:title` 均正確顯示新內容
+- 預計效果：Google 重新爬取後（約 1-2 週），「牙間刷」「牙間刷用法」「牙間刷多久換一次」等關鍵字 CTR 應有明顯提升
 
 ### 問題 4：產品分類頁 Title（已解決 ✅）
 
@@ -153,27 +160,21 @@
 
 ### 緊急（本週內）
 
-#### A1. 完成 301 轉址設定
-- 舊站 URL 在近 7 天幾乎已無流量，但需確認 `www.tepetw.com` 回傳 301 而非 200
-- 特別確認高流量頁面的對應：
-  - `www.tepetw.com/article_detail/11/` → `tepetw.com/blogs/pro-articles/bone-screw-part1`
-  - `www.tepetw.com/products_detail/28` → 對應 Shopify 產品頁
-  - `www.tepetw.com/` → `tepetw.com/`
-- 工具：可用瀏覽器或 `curl -I` 驗證
+#### ~~A1. 完成 301 轉址設定~~ ✅ 已驗證完成
+- 2026-03-21 實測：所有舊站 URL 均回傳 301，Shopify canonical_host_redirection 正常運作
+- 詳見問題 1 的驗證結果
 
-#### A2. 排查 GA4 「(not set)」landing page
-- 90 sessions 進入但 landing page 為 `(not set)`，跳出率 98.9%
-- 可能原因：部分頁面缺少 GA4 追蹤碼、或 bot 流量
-- 檢查 Shopify theme 中 GA4 snippet 是否在所有頁面載入
+#### ~~A2. 排查 GA4 「(not set)」landing page~~ ✅ 已排查完成
+- 2026-03-21 實測：GA4 追蹤碼在所有頁面類型均正常載入
+- 「(not set)」為 bot 流量，非追蹤碼問題
 
 ### 短期（2 週內）
 
-#### B1. 優化「牙間刷」核心關鍵字 CTR
-- 「牙間刷」曝光 2,253 但僅 3 clicks（CTR 0.1%），排名 7.7
-- `idb-main` 是對應頁面，需優化其 title 和 meta description：
-  - 現有 title 可能太長或不夠吸引
-  - 建議方向：「牙間刷完整指南：怎麼選、怎麼用、多久換？- TePe」
-- 同時優化「牙間刷用法」(215 曝光, 0.5% CTR)、「牙間刷多久換一次」(404 曝光, 1.2% CTR)
+#### ~~B1. 優化「牙間刷」核心關鍵字 CTR~~ ✅ 已完成
+- 2026-03-21 已透過 Shopify REST API 更新 `idb-main` 文章的 SEO title 和 meta description
+- 新 title：`牙間刷完整指南：尺寸選擇、正確用法與常見迷思｜TePe`
+- 新 meta description：`牙間刷怎麼選？完整解析牙間刷尺寸對照、正確使用方法、多久換一次。搭配牙刷使用，有效清除 40% 牙縫死角，預防牙周病。`
+- 待追蹤：Google 重新爬取後 CTR 變化（預計 1-2 週）
 
 #### B2. 為缺少專屬內容的高曝光關鍵字建立頁面
 利用 `content-hub-generator` 和 `seo-content-writer` 建立：
@@ -248,10 +249,10 @@
 
 | 行動項目 | 狀態 | 說明 |
 |----------|------|------|
-| A1. 修復 GA4 追蹤碼 | ✅ 已解決 | 3 月資料正常流入（442 sessions/20天）；2 月資料永久遺失 |
-| A2. 設定 301 轉址 | ⏳ 進行中 | 近 7 天舊站幾乎無流量，但需驗證 301 是否正確回傳 |
+| A1. 修復 GA4 追蹤碼 | ✅ 已解決 | 3 月資料正常流入（442 sessions/20天）；2 月資料永久遺失；「(not set)」確認為 bot 流量 |
+| A2. 設定 301 轉址 | ✅ 已驗證完成 | 所有舊站 URL 均回傳 301，Shopify canonical_host_redirection 正常運作 |
 | B1. 提交新站 Sitemap | ✅ 已完成 | tepetw.com/sitemap.xml 已 Active，舊站 sitemap 已移除 |
-| B2. 優化高曝光關鍵字 Title/Meta | ⏳ 部分完成 | 「牙間刷尺寸」大幅改善（+10 clicks）；其他關鍵字待優化 |
+| B2. 優化高曝光關鍵字 Title/Meta | ✅ idb-main 已完成 | 「牙間刷尺寸」大幅改善（+10 clicks）；idb-main SEO title/meta 已更新，待追蹤 CTR 變化 |
 | B3. 修正產品分類頁 Title | ✅ 已完成 | 17 個分類頁均已設定獨立 SEO title |
 | C1. 建立專門內容 | ⏳ 進行中 | 已建立牙刷內容中心（5 篇支援文章）；牙間刷系列持續擴充 |
 | C2. 提升回訪率 | ❌ 未開始 | 回訪率仍極低（新用戶 99.7%） |
@@ -261,9 +262,11 @@
 
 ## 六、下週追蹤重點
 
-- [ ] 驗證 www.tepetw.com 是否回傳 301（非 200）
-- [ ] 排查 GA4 「(not set)」landing page（90 sessions）
-- [ ] 優化 idb-main 的 title/meta description 以提升「牙間刷」CTR
+- [x] 驗證 www.tepetw.com 是否回傳 301（非 200）→ ✅ 已驗證，全部正常
+- [x] 排查 GA4 「(not set)」landing page（90 sessions）→ ✅ 確認為 bot 流量
+- [x] 優化 idb-main 的 title/meta description 以提升「牙間刷」CTR → ✅ 已更新
+- [ ] 追蹤 idb-main SEO 更新後「牙間刷」CTR 變化（預計 1-2 週見效）
 - [ ] 追蹤 3 月完整月數據是否達到預估 ~740 clicks
 - [ ] idb-main 跳出率改善（現 73.1%）
 - [ ] 追蹤牙刷內容中心（brush-main）在 GSC 的收錄情況
+- [ ] 為「單束毛牙刷」（排名 1.4, CTR 0.6%）建立專屬文章或優化 SEO
